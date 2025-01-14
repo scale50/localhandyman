@@ -49,6 +49,7 @@ function getProvince(fsa) {
 function findLocation(fsa) {
     console.log('FSA being looked up:', fsa);
     console.log('Territory Map:', territoryMap);
+    
     const fsaPattern = /^[ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ]$/i;
     if (!fsaPattern.test(fsa)) {
         console.log('FSA failed pattern test');
@@ -56,15 +57,19 @@ function findLocation(fsa) {
     }
     
     const province = getProvince(fsa);
-     console.log('Province found:', province);
+    console.log('Province found:', province);
+    
     if (!territoryMap[province]) {
         return urlMap.default;
     }
     
-    const territory = territoryMap[province][fsa];
+    // Find territory that contains this FSA
+    const territory = Object.keys(territoryMap[province]).find(terr => 
+        territoryMap[province][terr].includes(fsa)
+    );
+    
     console.log('Territory found:', territory);
     return urlMap[territory] || urlMap.default;
-    console.log('Final URL:', finalURL);
 }
 
 function handleSearch() {
