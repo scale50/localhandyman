@@ -62,10 +62,7 @@ function findLocation(fsa) {
 }
 
 function handleSearch() {
-    const rawInput = document.getElementById('fsaInput').value;
-    const fsa = cleanPostalCode(rawInput);
-    window.location.href = findLocation(fsa);
-    console.log('Button clicked');
+  console.log('Button clicked');
     const rawInput = document.getElementById('fsaInput').value;
     console.log('Input value:', rawInput);
     const fsa = cleanPostalCode(rawInput);
