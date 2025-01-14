@@ -16,7 +16,7 @@ const provinceMap = {
     'S': 'SK',
     'T': 'AB',
     'V': 'BC',
-    'X': 'NT'  
+    'X': 'NT',  
     'Y': 'YT'
 };
 
