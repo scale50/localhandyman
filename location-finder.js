@@ -1,3 +1,5 @@
+console.log('Location finder script loaded');
+
 // Data objects
 const provinceMap = {
     'A': 'NL',
@@ -63,4 +65,12 @@ function handleSearch() {
     const rawInput = document.getElementById('fsaInput').value;
     const fsa = cleanPostalCode(rawInput);
     window.location.href = findLocation(fsa);
+    console.log('Button clicked');
+    const rawInput = document.getElementById('fsaInput').value;
+    console.log('Input value:', rawInput);
+    const fsa = cleanPostalCode(rawInput);
+    console.log('Cleaned FSA:', fsa);
+    const url = findLocation(fsa);
+    console.log('Redirect URL:', url);
+    window.location.href = url;
 }
