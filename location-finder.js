@@ -24,16 +24,45 @@ const provinceMap = {
 
 const territoryMap = {
     'BC': {
-        'langley-territory': ['V2Y', 'V2Z', 'V3A', 'V4W'],
-        'surrey-territory': ['V3S', 'V3T', 'V3V', 'V3W', 'V3X', 'V4A', 'V4B', 'V4C', 'V4D', 'V4E']
+        'langley': ['V3A', 'V2Y', 'V2Z', 'V1M', 'V4W'],
+        'surrey': ['V3S', 'V3T', 'V3V', 'V3W', 'V3X', 'V4A', 'V4B', 'V4C', 'V4D', 'V4E'],
+        'kelowna': ['V1Z', 'V1Y', 'V1X', 'V1W', 'V4V', 'V4T'],
+        'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G'],
+        'saskatoon': ['S7P', 'S7T', 'S7H', 'S7J', 'S7K', 'S7L', 'S7M', 'S7N', 'S7R', 'S7S', 'S7V', 'S7W'],
+        'calgary-airdre': ['T4A', 'T4B', 'T3S', 'T3R', 'T3P', 'T3N', 'T3M', 'T3L', 'T3K', 'T3J', 'T3H', 'T3G', 'T3E', 'T3C', 'T3B', 'T3A', 'T2Z', 'T2Y', 'T2X', 'T2V', 'T2T', 'T2S', 'T2R', 'T2P', 'T2N', 'T2M', 'T2L', 'T2H', 'T2G', 'T2E', 'T2C', 'T2B', 'T2A', 'T1Y', 'T1X', 'T2W'],
+        'calgary-east': ['T2A', 'T2B', 'T2C', 'T3S', 'T1X'],
+        'lethbridge': ['T1K', 'T1J', 'T1H', 'T0L'],
+        'neworleans': ['V2Y', 'V2Z', 'V3A', 'V4W'],
+        'vancouver-central': ['V5K', 'V5Y', 'V5W', 'V5V', 'V59'],
+        'metrovan': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K'],
+        'tri-cities': ['V3J', 'V3K', 'V2X', 'V3Y', 'V3B', 'V3E', 'V3C', 'V3H', 'V2W', 'V4R', 'V4S'],
+        'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
+        'grande-prairie': ['T8X', 'T8W', 'T8V'],
+        'niagara': ['L0S', 'L2A', 'L2E', 'L2G', 'L2H', 'L2M', 'L2N', 'L2P', 'L2R', 'L2S', 'L2T', 'L2V', 'L3K', 'L3C'],
+        'oakville': ['L6K', 'L6H', 'L6L', 'L6M'],
+        '
         // ... rest of territory mappings
     },
     // ... other provinces
 };
 
 const urlMap = {
-    'langley-territory': 'https://app.localhandymangroup.com/langley',
-    // ... other URL mappings
+     'langley': 'https://app.localhandymangroup.com/langley',
+    'surrey': 'https://app.localhandymangroup.com/surrey',
+    'kelowna': 'https://app.localhandymangroup.com/kelowna',
+    'regina': 'https://app.localhandymangroup.com/regina',
+    'saskatoon': 'https://app.localhandymangroup.com/saskatoon',
+    'calgary-airdre': 'https://app.localhandymangroup.com/calgary-airdre',
+    'calgary-east': 'https://app.localhandymangroup.com/calgary-east',
+    'lethbridge': 'https://app.localhandymangroup.com/lethbridge',
+    'neworleans': 'https://app.localhandymangroup.com/neworleans',
+    'vancouver-central': 'https://app.localhandymangroup.com/vancouver-central',
+    'metrovan': 'https://app.localhandymangroup.com/metrovan',
+    'tri-cities': 'https://app.localhandymangroup.com/tri-cities',
+    'whiterock': 'https://app.localhandymangroup.com/whiterock',
+    'grande-prairie': 'https://app.localhandymangroup.com/grande-prairie',
+    'niagara': 'https://app.localhandymangroup.com/niagara',
+    'oakville': 'https://app.localhandymangroup.com/oakville',
     'default': 'https://app.localhandymangroup.com/default-location'
 };
 
