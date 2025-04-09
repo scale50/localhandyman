@@ -40,30 +40,29 @@ const territoryMap = {
         'grande-prairie': ['T8X', 'T8W', 'T8V'],
         'niagara': ['L0S', 'L2A', 'L2E', 'L2G', 'L2H', 'L2M', 'L2N', 'L2P', 'L2R', 'L2S', 'L2T', 'L2V', 'L3K', 'L3C'],
         'oakville': ['L6K', 'L6H', 'L6L', 'L6M'],
-        '
         // ... rest of territory mappings
     },
     // ... other provinces
 };
 
 const urlMap = {
-     'langley': 'https://app.localhandymangroup.com/langley-ojoy',
-    'surrey': 'https://app.localhandymangroup.com/surrey',
-    'kelowna': 'https://app.localhandymangroup.com/kelowna',
-    'regina': 'https://app.localhandymangroup.com/regina',
-    'saskatoon': 'https://app.localhandymangroup.com/saskatoon',
-    'calgary-airdre': 'https://app.localhandymangroup.com/calgary-airdre',
-    'calgary-east': 'https://app.localhandymangroup.com/calgary-east',
-    'lethbridge': 'https://app.localhandymangroup.com/lethbridge',
-    'neworleans': 'https://app.localhandymangroup.com/neworleans',
-    'vancouver-central': 'https://app.localhandymangroup.com/vancouver-central',
-    'northshore-vancouver': 'https://app.localhandymangroup.com/northshore-vancouver',
-    'tri-cities': 'https://app.localhandymangroup.com/tri-cities',
-    'whiterock': 'https://app.localhandymangroup.com/whiterock',
-    'grande-prairie': 'https://app.localhandymangroup.com/grande-prairie',
-    'niagara': 'https://app.localhandymangroup.com/niagara',
-    'oakville': 'https://app.localhandymangroup.com/oakville',
-    'default': 'https://app.localhandymangroup.com/default-location'
+     'langley': 'https://localhandymangroup.com/langley-ojoy',
+    'surrey': 'https://localhandymangroup.com/surrey',
+    'kelowna': 'https://localhandymangroup.com/kelowna',
+    'regina': 'https://localhandymangroup.com/regina',
+    'saskatoon': 'https://localhandymangroup.com/saskatoon',
+    'calgary-airdre': 'https://localhandymangroup.com/calgary-airdre',
+    'calgary-east': 'https://localhandymangroup.com/calgary-east',
+    'lethbridge': 'https://localhandymangroup.com/lethbridge',
+    'neworleans': 'https://localhandymangroup.com/neworleans',
+    'vancouver-central': 'https://localhandymangroup.com/vancouver-central',
+    'northshore-vancouver': 'https://localhandymangroup.com/northshore-vancouver',
+    'tri-cities': 'https://localhandymangroup.com/tri-cities',
+    'whiterock': 'https://localhandymangroup.com/whiterock',
+    'grande-prairie': 'https://localhandymangroup.com/grande-prairie',
+    'niagara': 'https://localhandymangroup.com/niagara',
+    'oakville': 'https://localhandymangroup.com/oakville',
+    'default': 'https://localhandymangroup.com/default-location'
 };
 
 // Functions
