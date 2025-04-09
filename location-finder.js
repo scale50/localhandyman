@@ -34,7 +34,7 @@ const territoryMap = {
         'lethbridge': ['T1K', 'T1J', 'T1H', 'T0L'],
         'neworleans': ['V2Y', 'V2Z', 'V3A', 'V4W'],
         'vancouver-central': ['V5K', 'V5Y', 'V5W', 'V5V', 'V59'],
-        'metrovan': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K'],
+        'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K'],
         'tri-cities': ['V3J', 'V3K', 'V2X', 'V3Y', 'V3B', 'V3E', 'V3C', 'V3H', 'V2W', 'V4R', 'V4S'],
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
         'grande-prairie': ['T8X', 'T8W', 'T8V'],
@@ -47,7 +47,7 @@ const territoryMap = {
 };
 
 const urlMap = {
-     'langley': 'https://app.localhandymangroup.com/langley',
+     'langley': 'https://app.localhandymangroup.com/langley-ojoy',
     'surrey': 'https://app.localhandymangroup.com/surrey',
     'kelowna': 'https://app.localhandymangroup.com/kelowna',
     'regina': 'https://app.localhandymangroup.com/regina',
@@ -57,7 +57,7 @@ const urlMap = {
     'lethbridge': 'https://app.localhandymangroup.com/lethbridge',
     'neworleans': 'https://app.localhandymangroup.com/neworleans',
     'vancouver-central': 'https://app.localhandymangroup.com/vancouver-central',
-    'metrovan': 'https://app.localhandymangroup.com/metrovan',
+    'northshore-vancouver': 'https://app.localhandymangroup.com/northshore-vancouver',
     'tri-cities': 'https://app.localhandymangroup.com/tri-cities',
     'whiterock': 'https://app.localhandymangroup.com/whiterock',
     'grande-prairie': 'https://app.localhandymangroup.com/grande-prairie',
