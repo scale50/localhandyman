@@ -27,11 +27,11 @@ const territoryMap = {
         'langley': ['V3A', 'V2Y', 'V2Z', 'V1M', 'V4W'],
         'surrey': ['V3S', 'V3T', 'V3V', 'V3W', 'V3X', 'V4A', 'V4B', 'V4C', 'V4D', 'V4E'],
         'kelowna': ['V1Z', 'V1Y', 'V1X', 'V1W', 'V4V', 'V4T', 'V1V'],
-        'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G'],
+        'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G', 'S4X'],
         'saskatoon': ['S7P', 'S7T', 'S7H', 'S7J', 'S7K', 'S7L', 'S7M', 'S7N', 'S7R', 'S7S', 'S7V', 'S7W'],
         'calgary-airdrie': ['T4A', 'T4B', 'T3S', 'T3R', 'T3P', 'T3N', 'T3M', 'T3L', 'T3K', 'T3J', 'T3H', 'T3G', 'T3E', 'T3C', 'T3B', 'T3A', 'T2Z', 'T2Y', 'T2X', 'T2V', 'T2T', 'T2S', 'T2R', 'T2P', 'T2N', 'T2M', 'T2L', 'T2H', 'T2G', 'T2E', 'T2C', 'T2B', 'T2A', 'T1Y', 'T1X', 'T2W'],
         'calgary-east': ['T2A', 'T2B', 'T2C', 'T3S', 'T1X'],
-        'lethbridge': ['T1K', 'T1J', 'T1H', 'T0L'],
+        'lethbridge': ['T1K', 'T1J', 'T1H', 'T0L', 'T0K', 'T1M', 'T1G'],
         'neworleans': ['V2Y', 'V2Z', 'V3A', 'V4W'],
         'vancouver-central': ['V5K', 'V5Y', 'V5W', 'V5V','V59','V6T','V6S','V6N','V6R','V6L','V6K','V6P'],
         'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K','V7G', 'V7H','V7L','V7J','V5Y','V5W','V5V','V5P','V6G','V6E','V7X','V6C','V6Z','V6B','V5T','V6A','V5L'],
@@ -39,7 +39,7 @@ const territoryMap = {
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
         'grande-prairie': ['T8X', 'T8W', 'T8V'],
         'niagara': ['L0S', 'L2A', 'L2E', 'L2G', 'L2H', 'L2M', 'L2N', 'L2P', 'L2R', 'L2S', 'L2T', 'L2V', 'L3K', 'L3C'],
-        'oakville': ['L6K', 'L6H', 'L6L', 'L6M'],
+        'oakville': ['L6K', 'L6H', 'L6L', 'L6M', 'L6J'],
         // ... rest of territory mappings
     },
     // ... other provinces
