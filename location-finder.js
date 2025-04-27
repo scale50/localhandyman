@@ -46,7 +46,6 @@ const territoryMap = {
 
 const urlMap = {
      'langley': 'https://localhandymangroup.com/langley-ojoy',
-    'surrey': 'https://localhandymangroup.com/surrey',
     'kelowna': 'https://localhandymangroup.com/kelowna',
     'regina': 'https://localhandymangroup.com/regina',
     'saskatoon': 'https://localhandymangroup.com/saskatoon',
