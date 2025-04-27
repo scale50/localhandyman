@@ -65,6 +65,7 @@ const territoryMap = {
     'US': {
         'newyork': ['10001', '10002', '10003', '10004', '10005'],
         'losangeles': ['90001', '90002', '90003', '90004', '90005'],
+        'frisco-allen': ['75033', '75034', '75035', '75002', '75013', '75023', '75025'],
         // Add more US territories as needed
     }
 };
@@ -85,6 +86,7 @@ const urlMap = {
     'grande-prairie': 'https://localhandymangroup.com/grande-prairie',
     'niagara': 'https://localhandymangroup.com/niagara',
     'oakville': 'https://localhandymangroup.com/oakville',
+    'frisco-allen': 'https://localhandymangroup.com/frisco-allen',
     'default': 'https://localhandymangroup.com/default-location'
 };
 
