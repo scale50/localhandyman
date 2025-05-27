@@ -57,7 +57,7 @@ const territoryMap = {
     },
     'ON': {
         'niagara': ['L0S', 'L2A', 'L2E', 'L2G', 'L2H', 'L2M', 'L2N', 'L2P', 'L2R', 'L2S', 'L2T', 'L2V', 'L3K', 'L3C'],
-        'oakville': ['L6K', 'L6H', 'L6L', 'L6M', 'L6J', 'L8B', 'L7T', 'L7P', 'L7M', 'L7S', 'L7R', 'L7N', 'L7L']],
+        'oakville': ['L6K', 'L6H', 'L6L', 'L6M', 'L6J', 'L8B', 'L7T', 'L7P', 'L7M', 'L7S', 'L7R', 'L7N', 'L7L'],
         'hamilton': ['L9H', 'L8N', 'L8P', 'L8M', 'L8S', 'L8R', 'L8L', 'L9G', 'L9K', 'L9B', 'L9C', 'L9A'],
 
     },
