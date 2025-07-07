@@ -49,7 +49,7 @@ const territoryMap = {
         'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G', 'S4X'],
         'saskatoon': ['S7P', 'S7T', 'S7H', 'S7J', 'S7K', 'S7L', 'S7M', 'S7N', 'S7R', 'S7S', 'S7V', 'S7W'],
     },
-       'AB': {
+    'AB': {
         'calgary-airdrie': ['T4A', 'T4B', 'T3R', 'T3P', 'T3N', 'T3M', 'T3L', 'T3K', 'T3J', 'T3H', 'T3G', 'T3E', 'T3C', 'T3B', 'T3A', 'T2Z', 'T2Y', 'T2X', 'T2V', 'T2T', 'T2S', 'T2R', 'T2P', 'T2N', 'T2M', 'T2L', 'T2H', 'T2G', 'T2E', 'T1Y', 'T2W'],
         'calgary-east': ['T2A', 'T2B', 'T2C', 'T3S', 'T1X'],
         'lethbridge': ['T1K', 'T1J', 'T1H', 'T0L', 'T0K', 'T1M', 'T1G'],
@@ -61,12 +61,15 @@ const territoryMap = {
         'hamilton': ['L9H', 'L8N', 'L8P', 'L8M', 'L8S', 'L8R', 'L8L', 'L9G', 'L9K', 'L9B', 'L9C', 'L9A'],
 
     },
+     'MB': {
+        'brandon': ['R0K', 'R7B', 'R7C', 'R7A'],
+        'winnipeg': ['R4G', 'R3Y', 'R4H', 'R3S', 'R3R', 'R3K', 'R2Y', 'R3P'],
+
+    },
     // ... other provinces
     
     // Add US territories - example structure for when you add US locations
     'US': {
-        'newyork': ['10001', '10002', '10003', '10004', '10005'],
-        'losangeles': ['90001', '90002', '90003', '90004', '90005'],
         'frisco-allen': ['75033', '75034', '75035', '75002', '75013', '75023', '75025'],
         // Add more US territories as needed
     }
@@ -90,6 +93,8 @@ const urlMap = {
     'oakville': 'https://localhandymangroup.com/oakville',
     'hamilton': 'https://localhandymangroup.com/hamilton',
     'frisco-allen': 'https://localhandymangroup.com/frisco-allen',
+    'brandon': 'https://localhandymangroup.com/brandon',
+    'winnipeg': 'https://localhandymangroup.com/winnipeg',
     'default': 'https://localhandymangroup.com/default-location'
 };
 
