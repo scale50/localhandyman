@@ -44,6 +44,7 @@ const territoryMap = {
         'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K','V7G', 'V7H','V7L','V7J','V5Y','V5W','V5V','V5P','V6G','V6E','V7X','V6C','V6Z','V6B','V5T','V6A','V5L'],
         'tri-cities': ['V3J', 'V3K', 'V2X', 'V3Y', 'V3B', 'V3E', 'V3C', 'V3H', 'V2W', 'V4R', 'V4S'],
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
+        'coquitlam': ['V3H', 'V3K', 'V3J'],
     },
     'SK': {
         'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G', 'S4X'],
@@ -71,6 +72,8 @@ const territoryMap = {
     // Add US territories - example structure for when you add US locations
     'US': {
         'frisco-allen': ['75033', '75034', '75035', '75002', '75013', '75023', '75025'],
+        'st-louis': ['63105', '63114', '63117', '63124', '63130', '63132', '63017', '63043', '63044', '63045', '63074', '63141', '63011', '63021', '63122', '63131', '63025', '63026', '63049', '63051', '63052', '63088', '63099', '63368', '63376', '63146'],
+        'las-vegas': ['89004', '89113', '89148', '89161', '89178', '89002', '89012', '89052', '89074', '89123', '89139', '89103', '89135', '89147', '89128', '89134', '89138', '89144', '89145'],
         // Add more US territories as needed
     }
 };
@@ -95,6 +98,9 @@ const urlMap = {
     'frisco-allen': 'https://localhandymangroup.com/frisco-allen',
     'brandon': 'https://localhandymangroup.com/brandon',
     'winnipeg': 'https://localhandymangroup.com/winnipeg',
+    'st-louis': 'https://localhandymangroup.com/stlouis'
+    'las-vegas': 'https://localhandymangroup.com/lasvegas'
+    'coquitlam': 'https://localhandymangroup.com/coquitlam'
     'default': 'https://localhandymangroup.com/default-location'
 };
 
