@@ -98,9 +98,9 @@ const urlMap = {
     'frisco-allen': 'https://localhandymangroup.com/frisco-allen',
     'brandon': 'https://localhandymangroup.com/brandon',
     'winnipeg': 'https://localhandymangroup.com/winnipeg',
-    'st-louis': 'https://localhandymangroup.com/stlouis'
-    'las-vegas': 'https://localhandymangroup.com/lasvegas'
-    'coquitlam': 'https://localhandymangroup.com/coquitlam'
+    'st-louis': 'https://localhandymangroup.com/stlouis',
+    'las-vegas': 'https://localhandymangroup.com/lasvegas',
+    'coquitlam': 'https://localhandymangroup.com/coquitlam',
     'default': 'https://localhandymangroup.com/default-location'
 };
 
