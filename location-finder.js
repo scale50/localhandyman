@@ -42,9 +42,9 @@ const territoryMap = {
         'kelowna': ['V1Z', 'V1Y', 'V1X', 'V1W', 'V4V', 'V4T', 'V1V'],
         'vancouver-central': ['V5K', 'V5Y', 'V5W', 'V5V','V59','V6T','V6S','V6N','V6R','V6L','V6K','V6P'],
         'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K','V7G', 'V7H','V7L','V7J','V5Y','V5W','V5V','V5P','V6G','V6E','V7X','V6C','V6Z','V6B','V5T','V6A','V5L'],
-        'tri-cities': ['V3J', 'V3K', 'V2X', 'V3Y', 'V3B', 'V3E', 'V3C', 'V3H', 'V2W', 'V4R', 'V4S'],
+        'tri-cities': ['V2X', 'V3Y', 'V2W', 'V4R'],
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
-        'coquitlam': ['V3H', 'V3K', 'V3J'],
+        'coquitlam': ['V3H', 'V3K', 'V3J', 'V3B', 'V3E', 'V3C'],
     },
     'SK': {
         'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G', 'S4X'],
