@@ -102,7 +102,7 @@ const urlMap = {
     'st-louis': 'https://localhandymangroup.com/stlouis',
     'las-vegas': 'https://localhandymangroup.com/lasvegas',
     'ridge-meadows': 'https://localhandymangroup.com/ridgemeadows',
-    'mid-south': 'https://localhandymangroup.com/mid-south,
+    'mid-south': 'https://localhandymangroup.com/mid-south',
     'default': 'https://localhandymangroup.com/default-location'
 };
 
