@@ -41,7 +41,7 @@ const territoryMap = {
         'fraser-valley': ['V3A', 'V2Y', 'V2Z', 'V1M', 'V4W','V4X','V2T','V2S','V3G','V0X','V2R','V2P','V0M','V4Z'],
         'kelowna': ['V1Z', 'V1Y', 'V1X', 'V1W', 'V4V', 'V4T', 'V1V'],
         'vancouver-central': ['V5K', 'V5Y', 'V5W', 'V5V','V59','V6T','V6S','V6N','V6R','V6L','V6K','V6P'],
-        'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K','V7G', 'V7H','V7L','V7J','V5Y','V5W','V5V','V5P','V6G','V6E','V7X','V6C','V6Z','V6B','V5T','V6A','V5L','V7S', 'V7L', 'V7J', 'V7H', 'V7G'],
+        'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K', 'V7G', 'V7H', 'V7L', 'V7J', 'V7S'],
         'ridge-meadows': ['V2X', 'V3Y', 'V2W', 'V4R'],
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
         'tri-cities': ['V3H', 'V3K', 'V3J', 'V3B', 'V3E', 'V3C'],
