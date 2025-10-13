@@ -39,7 +39,7 @@ const zipStateMap = {
 const territoryMap = {
     'BC': {
         'fraser-valley': ['V3A', 'V2Y', 'V2Z', 'V1M', 'V4W','V4X','V2T','V2S','V3G','V0X','V2R','V2P','V0M','V4Z'],
-        'kelowna': ['V1Z', 'V1Y', 'V1X', 'V1W', 'V4V', 'V4T', 'V1V'],
+        'kelowna': ['V1Z', 'V1Y', 'V1X', 'V1W', 'V4V', 'V4T', 'V1V', 'V1P', 'V1T', 'V1H', 'V1B', 'V1E', 'V0H', 'V2A']
         'vancouver-central': ['V5K', 'V5Y', 'V5W', 'V5V','V59','V6T','V6S','V6N','V6R','V6L','V6K','V6P'],
         'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K', 'V7G', 'V7H', 'V7L', 'V7J', 'V7S'],
         'ridge-meadows': ['V2X', 'V3Y', 'V2W', 'V4R'],
