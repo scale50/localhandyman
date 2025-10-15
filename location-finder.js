@@ -45,6 +45,7 @@ const territoryMap = {
         'ridge-meadows': ['V2X', 'V3Y', 'V2W', 'V4R'],
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
         'tri-cities': ['V3H', 'V3K', 'V3J', 'V3B', 'V3E', 'V3C'],
+        'kamloops': ['V2E', 'V1S', 'V2B', 'V2H', 'V2C'],
     },
     'SK': {
         'regina': ['S4L', 'S4N', 'S4P', 'S4R', 'S4S', 'S4T', 'S4V', 'S4W', 'S4Y', 'S4Z', 'S0G', 'S4X'],
@@ -105,6 +106,7 @@ const urlMap = {
     'ridge-meadows': 'https://localhandyman.com/ridgemeadows',
     'mid-south': 'https://localhandyman.com/mid-south',
     'pittsburgh': 'https://localhandyman.com/pittsburgh',
+    'kamloops': 'https://localhandyman.com/kamloops',
     'default': 'https://localhandyman.com/default-location'
 };
 
