@@ -81,7 +81,7 @@ const territoryMap = {
         'raleigh': ['27603', '27592', '27529', '27539', '27540', '27526', '27312', '27523', '27502', '27517', '27559', '27562'],
         'north-charlotte': ['28078', '28206', '28269', '28117', '28036', '28115', '28031', '28027', '28081', '28083'],
         'knoxville': ['37862', '37863', '37738', '37876', '37764', '37820', '37725', '37760', '37890', '37742', '37772', '37801', '37737', '37777', '37803', '37701', '37804', '37853', '37886', '37865', '37934', '37830', '37932', '37922', '37931'],
-        'ann-arbor': ['48197', '48105', '48198', '48103', '48108', '48104', '48109', '48188', '48187', '48170'],
+        'southeast-michigan': ['48197', '48105', '48198', '48103', '48108', '48104', '48109', '48188', '48187', '48170'],
         'youngstown': ['44420', '44425', '44437', '44509', '44502', '44510', '44503', '44555', '44504', '44506', '44505', '44405', '44436', '44440', '44515', '44446', '44452', '44512', '44511', '44507', '44443', '44514', '44442', '44471', '44449', '44411', '44412', '44401', '44429', '44406', '44451'],
  // Add more US territories as needed
     }
@@ -117,7 +117,7 @@ const urlMap = {
     'raleigh': 'https://localhandyman.com/raleigh',
     'charlotte-north': 'https://localhandyman.com/northcharlotte',
     'knoxville': 'https://localhandyman.com/knoxville',
-    'ann-arbor': 'https://localhandyman.com/annarbor',
+    'ann-arbor': 'https://localhandyman.com/southeast-michigan',
     'youngstown': 'https://localhandyman.com/youngstown',
     'default': 'https://localhandyman.com/default-location',
 };
