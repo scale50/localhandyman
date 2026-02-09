@@ -95,7 +95,7 @@ There is no automated test suite. Changes should be verified manually:
    - Key: the territory name (must exactly match the key used in `territoryMap`)
    - Value: the full `https://localhandyman.com/<slug>` URL
 
-3. **Known inconsistency**: Some `urlMap` keys don't match their `territoryMap` keys (e.g., `'north-charlotte'` in `territoryMap` but `'charlotte-north'` in `urlMap`, `'southeast-michigan'` in `territoryMap` but `'ann-arbor'` in `urlMap`). Be aware of this when adding or modifying territories.
+3. **Known inconsistency**: The `urlMap` key `'ann-arbor'` doesn't match its `territoryMap` key `'southeast-michigan'`. Be aware of this when adding or modifying territories.
 
 ### Code Style
 - Plain ES6+ JavaScript (const, arrow functions, template literals)
@@ -109,8 +109,7 @@ There is no automated test suite. Changes should be verified manually:
 - Prefer short, descriptive messages explaining what changed
 
 ### Important Notes
-- The `oklahoma-city` territory contains an invalid ZIP code: `'973013'` (6 digits). This appears to be a data entry error.
-- The `urlMap` has a `'neworleans'` entry with no corresponding territory in `territoryMap`.
+- The `urlMap` has a `'neworleans'` entry with no corresponding territory in `territoryMap` yet (ZIP codes pending).
 - Canadian postal codes use the first 3 characters (FSA) for matching, not the full 6-character code.
 - US ZIP codes use all 5 digits for exact matching.
 - All unmatched codes redirect to `urlMap.default` (`https://localhandyman.com/default-location`).
