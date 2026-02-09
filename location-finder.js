@@ -119,7 +119,7 @@ const urlMap = {
     'raleigh': 'https://localhandyman.com/raleigh',
     'north-charlotte': 'https://localhandyman.com/northcharlotte',
     'knoxville': 'https://localhandyman.com/knoxville',
-    'ann-arbor': 'https://localhandyman.com/southeast-michigan',
+    'southeast-michigan': 'https://localhandyman.com/southeast-michigan',
     'youngstown': 'https://localhandyman.com/youngstown',
     'oklahoma-city': 'https://localhandyman.com/oklahomacity',
     'west-denver': 'https://localhandyman.com/westdenver',

@@ -95,7 +95,7 @@ There is no automated test suite. Changes should be verified manually:
    - Key: the territory name (must exactly match the key used in `territoryMap`)
    - Value: the full `https://localhandyman.com/<slug>` URL
 
-3. **Known inconsistency**: The `urlMap` key `'ann-arbor'` doesn't match its `territoryMap` key `'southeast-michigan'`. Be aware of this when adding or modifying territories.
+3. **Consistency**: All `urlMap` keys now match their corresponding `territoryMap` keys. Maintain this when adding new territories.
 
 ### Code Style
 - Plain ES6+ JavaScript (const, arrow functions, template literals)
