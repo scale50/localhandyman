@@ -7,12 +7,12 @@ A live web dashboard for tracking Google Business Profile reviews across all Loc
 ## How It Works
 
 ```
-Google Business Profile API  →  Google Sheet  →  Apps Script Web App  →  Dashboard (HTML)
+Google Business Profile API  →  Google Sheet  →  Apps Script  →  Dashboard (HTML served by Apps Script)
 ```
 
 1. **Apps Script** pulls review data from the GBP API into your Google Sheet
-2. The script also serves the sheet data as **JSON** via a `doGet()` web app endpoint
-3. The **HTML dashboard** fetches that JSON and renders it — sorted by review count, color-coded by status
+2. The **HTML dashboard** is served directly by Apps Script via `google.script.run`, calling server-side functions to read sheet data
+3. Dashboard renders the data — sorted by review count, color-coded by status
 
 ## Setup
 
@@ -21,36 +21,26 @@ Google Business Profile API  →  Google Sheet  →  Apps Script Web App  →  D
 1. Open your Google Sheet
 2. Go to **Extensions → Apps Script**
 3. Replace your existing `Code.gs` with the contents of [`apps-script/Code.gs`](apps-script/Code.gs)
-4. Save
+4. Add the dashboard HTML as a new file in Apps Script:
+   - In the Apps Script editor, click **+** next to Files → **HTML**
+   - Name it `Dashboard`
+   - Paste the contents of [`dashboard/index.html`](dashboard/index.html)
+5. Save
 
 ### Step 2 — Deploy as a Web App
 
 1. In the Apps Script editor, click **Deploy → New deployment**
 2. Click the gear icon → select **Web app**
 3. Set:
-   - **Description**: `GBP Dashboard API`
+   - **Description**: `GBP Dashboard`
    - **Execute as**: `Me`
    - **Who has access**: `Anyone within [your organization]`
 4. Click **Deploy**
-5. **Copy the Web app URL** — it looks like:
-   ```
-   https://script.google.com/a/macros/yourdomain.com/s/AKfycb.../exec
-   ```
 
-### Step 3 — Configure the Dashboard
+### Step 3 — Open the Dashboard
 
-1. Open [`dashboard/index.html`](dashboard/index.html)
-2. Find this line near the top of the `<script>` section:
-   ```js
-   const APPS_SCRIPT_URL = 'YOUR_DEPLOYED_APPS_SCRIPT_WEB_APP_URL_HERE';
-   ```
-3. Replace with your actual URL from Step 2
-4. Save the file
-
-### Step 4 — Open the Dashboard
-
-- Open `index.html` in any browser — it just works, no server needed
-- Or host it on GitHub Pages, Netlify, or any static host
+- Open the deployed web app URL — no additional configuration needed
+- The dashboard uses `google.script.run` to communicate with the server, so no external URL configuration is required
 
 ## Dashboard Features
 
@@ -66,8 +56,8 @@ Google Business Profile API  →  Google Sheet  →  Apps Script Web App  →  D
 
 ## Two Refresh Modes
 
-- **Reload Dashboard** — reads current sheet data (instant)
-- **Pull Fresh Reviews** — calls `updateReviews()` on the server first, which hits the GBP API for every location, then returns fresh data (takes 15–30 seconds depending on how many territories you have)
+- **Reload Dashboard** — calls `getSheetData()` to read current sheet data (instant)
+- **Pull Fresh Reviews** — calls `refreshAndGetData()` which hits the GBP API for every location first, then returns fresh data (takes 15–30 seconds depending on how many territories you have)
 
 ## Adding New Territories
 
@@ -81,7 +71,7 @@ gbp-dashboard/
 ├── apps-script/
 │   └── Code.gs          # Google Apps Script (paste into your sheet)
 ├── dashboard/
-│   └── index.html       # The web dashboard (single file, no dependencies)
+│   └── index.html       # The web dashboard (served by Apps Script)
 └── README.md
 ```
 
@@ -89,7 +79,7 @@ gbp-dashboard/
 
 | Issue | Fix |
 |-------|-----|
-| "Could not connect to data source" | Check that `APPS_SCRIPT_URL` is correct and the web app is deployed |
-| CORS errors | Make sure you deployed as a web app (not just saved). Redeploy if needed |
+| "Could not load data" | Make sure both `Code.gs` and `Dashboard.html` are in your Apps Script project |
 | "No OAuth access" on refresh | Open the Google Sheet and run **GBP Dashboard → Authorize GBP** from the menu |
 | Data looks stale | Click **Pull Fresh Reviews** to trigger a live GBP API call |
+| Dashboard won't load | Verify the web app is deployed and you have access within your organization |

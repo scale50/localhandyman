@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Handyman — GBP Review Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -47,7 +46,6 @@
     z-index: 9999;
   }
 
-  /* Top ambient glow */
   .ambient {
     position: fixed;
     top: -260px;
@@ -60,7 +58,6 @@
     z-index: 0;
   }
 
-  /* Layout */
   .shell {
     max-width: 1120px;
     margin: 0 auto;
@@ -139,6 +136,11 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+  .refresh-btn:disabled:hover {
+    background: var(--surface-raised);
+    border-color: var(--border);
+    box-shadow: none;
+  }
   .refresh-btn svg {
     width: 16px; height: 16px;
     transition: transform .4s ease;
@@ -155,8 +157,11 @@
   .refresh-btn.pull-live:hover {
     box-shadow: 0 4px 24px rgba(123,97,255,0.4);
   }
+  .refresh-btn.pull-live:disabled:hover {
+    box-shadow: none;
+  }
 
-  /* Status toast */
+  /* Toast */
   .toast {
     position: fixed;
     top: 24px;
@@ -166,7 +171,7 @@
     font-size: 13px;
     font-weight: 500;
     z-index: 10000;
-    transform: translateX(120%);
+    transform: translateX(calc(100% + 40px));
     transition: transform .35s cubic-bezier(.4,0,.2,1);
     max-width: 380px;
   }
@@ -239,11 +244,7 @@
     padding: 18px 26px;
     border-bottom: 1px solid var(--border);
   }
-  .table-title {
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: -0.2px;
-  }
+  .table-title { font-weight: 700; font-size: 15px; letter-spacing: -0.2px; }
   .table-count {
     font-size: 12px;
     color: var(--text-dim);
@@ -252,10 +253,8 @@
     border-radius: 50px;
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+  table { width: 100%; border-collapse: collapse; }
+
   thead th {
     font-size: 11px;
     text-transform: uppercase;
@@ -309,33 +308,15 @@
 
   .loc-name { font-weight: 500; }
 
-  /* Star rating */
-  .stars {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .stars-visual {
-    display: inline-flex;
-    gap: 1px;
-  }
-  .star {
-    width: 14px; height: 14px;
-    fill: var(--gold);
-  }
+  .stars { display: inline-flex; align-items: center; gap: 6px; }
+  .stars-visual { display: inline-flex; gap: 1px; }
+  .star { width: 14px; height: 14px; fill: var(--gold); }
   .star.empty { fill: #2A2E3B; }
   .star.half { fill: url(#halfGrad); }
-  .stars-num {
-    font-weight: 700;
-    font-size: 14px;
-    font-variant-numeric: tabular-nums;
-  }
+  .stars-num { font-weight: 700; font-size: 14px; font-variant-numeric: tabular-nums; }
 
-  .review-count {
-    font-weight: 700;
-  }
+  .review-count { font-weight: 700; }
 
-  /* Status badges */
   .badge {
     display: inline-block;
     font-size: 11px;
@@ -348,11 +329,8 @@
   .badge-warn  { background: var(--gold-dim); color: var(--gold); }
   .badge-alert { background: var(--orange-dim); color: var(--orange); }
 
-  /* Loading skeleton */
-  .skeleton-row td {
-    position: relative;
-    overflow: hidden;
-  }
+  /* Skeleton loading */
+  .skeleton-row td { position: relative; overflow: hidden; }
   .skeleton-row td::after {
     content: '';
     display: block;
@@ -362,12 +340,8 @@
     background: var(--surface-raised);
     animation: shimmer 1.5s ease infinite;
   }
-  @keyframes shimmer {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
-  }
+  @keyframes shimmer { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
 
-  /* Timestamp footer */
   .footer {
     text-align: center;
     margin-top: 32px;
@@ -376,11 +350,10 @@
     letter-spacing: 0.3px;
   }
 
-  /* Responsive */
   @media (max-width: 680px) {
     .kpi-row { grid-template-columns: 1fr; }
     header { flex-direction: column; align-items: flex-start; }
-    .header-actions { width: 100%; }
+    .header-actions { width: 100%; flex-wrap: wrap; }
     thead th, tbody td { padding: 12px 16px; font-size: 12px; }
     .kpi-value { font-size: 30px; }
   }
@@ -388,7 +361,6 @@
 </head>
 <body>
 
-<!-- Hidden SVG defs for half-star gradient -->
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <linearGradient id="halfGrad">
@@ -425,7 +397,6 @@
     </div>
   </header>
 
-  <!-- KPI Cards -->
   <div class="kpi-row">
     <div class="kpi">
       <div class="kpi-label">Total Reviews</div>
@@ -444,7 +415,6 @@
     </div>
   </div>
 
-  <!-- Table -->
   <div class="table-wrap">
     <div class="table-header-bar">
       <div class="table-title">Territories</div>
@@ -468,203 +438,176 @@
 </div>
 
 <script>
-// =====================================================
-// CONFIGURATION — Set your deployed Apps Script URL here
-// =====================================================
-const APPS_SCRIPT_URL = 'https://script.google.com/a/macros/localhandyman.com/s/AKfycbxgEMyqnwY0skN2ATjFYYMBYS9paBfXkS8oGV6Oyh99rINgfmf1XZZOx9bx9YA6kTFaAQ/exec';
-// Example: 'https://script.google.com/a/macros/yourdomain.com/s/AKfycb.../exec'
-
-
-// ===== TOAST NOTIFICATIONS =====
-function showToast(message, type = 'info', duration = 4000) {
-  const toast = document.getElementById('toast');
+// ===== TOAST =====
+function showToast(message, type, duration) {
+  type = type || 'info';
+  duration = duration || 4000;
+  var toast = document.getElementById('toast');
   toast.className = 'toast ' + type;
   toast.textContent = message;
-  requestAnimationFrame(() => toast.classList.add('show'));
-  setTimeout(() => toast.classList.remove('show'), duration);
+  // Force reflow then show
+  void toast.offsetWidth;
+  toast.classList.add('show');
+  setTimeout(function() { toast.classList.remove('show'); }, duration);
 }
 
-
-// ===== LOAD DATA =====
-async function loadData(refresh = false) {
-  const btnLoad = document.getElementById('btnLoad');
-  const btnRefresh = document.getElementById('btnRefresh');
-  const activeBtn = refresh ? btnRefresh : btnLoad;
-
-  activeBtn.classList.add('spinning');
-  btnLoad.disabled = true;
-  btnRefresh.disabled = true;
-
-  // Show skeleton loading
-  showSkeleton();
-
-  if (refresh) {
-    showToast('Pulling fresh reviews from Google… this may take a moment', 'info', 8000);
-  }
-
-  try {
-    const url = refresh
-      ? APPS_SCRIPT_URL + '?refresh=true'
-      : APPS_SCRIPT_URL;
-
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error('HTTP ' + response.status);
-    }
-
-    const data = await response.json();
-
-    if (data.error) {
-      throw new Error(data.error);
-    }
-
-    render(data.locations, data.generatedAt);
-    showToast(
-      refresh ? 'Reviews refreshed successfully!' : 'Dashboard loaded!',
-      'success'
-    );
-
-  } catch (err) {
-    console.error('Load error:', err);
-    showToast('Failed to load data: ' + err.message, 'error', 6000);
-
-    // If first load fails and we have no data, show a helpful message
-    const tbody = document.getElementById('tableBody');
-    if (tbody.children.length === 0 || tbody.querySelector('.skeleton-row')) {
-      tbody.innerHTML = `
-        <tr>
-          <td colspan="5" style="text-align:center; padding:40px; color:var(--text-dim)">
-            Could not connect to the data source.<br>
-            <small style="opacity:0.6">Make sure the Apps Script URL is configured and deployed.</small>
-          </td>
-        </tr>`;
-    }
-  } finally {
-    activeBtn.classList.remove('spinning');
-    btnLoad.disabled = false;
-    btnRefresh.disabled = false;
-  }
-}
-
-
-// ===== SKELETON LOADING =====
+// ===== SKELETON =====
 function showSkeleton() {
-  const tbody = document.getElementById('tableBody');
+  var tbody = document.getElementById('tableBody');
   tbody.innerHTML = '';
-  for (let i = 0; i < 8; i++) {
-    const tr = document.createElement('tr');
+  for (var i = 0; i < 8; i++) {
+    var tr = document.createElement('tr');
     tr.className = 'skeleton-row';
     tr.innerHTML = '<td></td><td></td><td></td><td></td><td></td>';
     tbody.appendChild(tr);
   }
 }
 
+// ===== SET BUTTON STATE =====
+function setLoading(isLoading, isRefresh) {
+  var btnLoad = document.getElementById('btnLoad');
+  var btnRefresh = document.getElementById('btnRefresh');
+  var activeBtn = isRefresh ? btnRefresh : btnLoad;
+
+  if (isLoading) {
+    activeBtn.classList.add('spinning');
+    btnLoad.disabled = true;
+    btnRefresh.disabled = true;
+  } else {
+    activeBtn.classList.remove('spinning');
+    btnLoad.disabled = false;
+    btnRefresh.disabled = false;
+  }
+}
+
+// ===== LOAD DATA =====
+function loadData(refresh) {
+  setLoading(true, refresh);
+  showSkeleton();
+
+  if (refresh) {
+    showToast('Pulling fresh reviews from Google… this may take a moment', 'info', 15000);
+    google.script.run
+      .withSuccessHandler(onDataLoaded)
+      .withFailureHandler(function(err) { onDataError(err, refresh); })
+      .refreshAndGetData();
+  } else {
+    google.script.run
+      .withSuccessHandler(onDataLoaded)
+      .withFailureHandler(function(err) { onDataError(err, refresh); })
+      .getSheetData();
+  }
+}
+
+function onDataLoaded(data) {
+  setLoading(false, false);
+  render(data.locations, data.generatedAt);
+  showToast('Dashboard loaded!', 'success');
+}
+
+function onDataError(err, refresh) {
+  setLoading(false, refresh);
+  console.error('Error:', err);
+  showToast('Error: ' + (err.message || err), 'error', 6000);
+
+  var tbody = document.getElementById('tableBody');
+  if (!tbody.children.length || tbody.querySelector('.skeleton-row')) {
+    tbody.innerHTML =
+      '<tr><td colspan="5" style="text-align:center; padding:40px; color:var(--text-dim)">' +
+      'Could not load data.<br><small style="opacity:0.6">' +
+      (err.message || err) + '</small></td></tr>';
+  }
+}
 
 // ===== RENDER =====
 function render(locations, generatedAt) {
   // Sort descending by review count
-  const sorted = [...locations].sort((a, b) => b.reviews - a.reviews);
+  var sorted = locations.slice().sort(function(a, b) { return b.reviews - a.reviews; });
 
-  // Compute KPIs
-  const totalReviews = sorted.reduce((s, l) => s + l.reviews, 0);
-  const withReviews = sorted.filter(l => l.reviews > 0);
-  const avgRating = withReviews.length
-    ? withReviews.reduce((s, l) => s + l.rating * l.reviews, 0) / totalReviews
-    : 0;
-  const activeCount = withReviews.length;
-  const zeroCount = sorted.length - activeCount;
+  // KPIs
+  var totalReviews = 0;
+  var weightedSum = 0;
+  var activeCount = 0;
+
+  for (var i = 0; i < sorted.length; i++) {
+    totalReviews += sorted[i].reviews;
+    if (sorted[i].reviews > 0) {
+      weightedSum += sorted[i].rating * sorted[i].reviews;
+      activeCount++;
+    }
+  }
+
+  var avgRating = totalReviews > 0 ? weightedSum / totalReviews : 0;
+  var zeroCount = sorted.length - activeCount;
 
   document.getElementById('totalReviews').textContent = totalReviews.toLocaleString();
-  document.getElementById('locCount').textContent = `across ${sorted.length} territories`;
+  document.getElementById('locCount').textContent = 'across ' + sorted.length + ' territories';
   document.getElementById('avgRating').textContent = avgRating.toFixed(2) + ' ★';
   document.getElementById('activeCount').textContent = activeCount;
   document.getElementById('zeroCount').textContent = zeroCount > 0
-    ? `${zeroCount} with zero reviews`
+    ? zeroCount + ' with zero reviews'
     : 'all territories have reviews';
-  document.getElementById('tableCount').textContent = `${sorted.length} territories`;
+  document.getElementById('tableCount').textContent = sorted.length + ' territories';
 
-  // Find latest update
-  const latestUpdate = sorted.reduce((max, l) => {
-    if (!l.updated) return max;
-    const d = new Date(l.updated);
-    return d > max ? d : max;
-  }, new Date(0));
-
-  const displayTime = generatedAt ? new Date(generatedAt) : latestUpdate;
+  // Timestamp
+  var displayTime = generatedAt ? new Date(generatedAt) : new Date();
   document.getElementById('footer').textContent =
     'Last updated: ' + displayTime.toLocaleString('en-US', {
       weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
       hour: '2-digit', minute: '2-digit'
     });
 
-  // Build table
-  const tbody = document.getElementById('tableBody');
+  // Table
+  var tbody = document.getElementById('tableBody');
   tbody.innerHTML = '';
 
-  sorted.forEach((loc, i) => {
-    const tr = document.createElement('tr');
-    tr.style.animationDelay = `${i * 0.03}s`;
+  for (var i = 0; i < sorted.length; i++) {
+    var loc = sorted[i];
+    var tr = document.createElement('tr');
+    tr.style.animationDelay = (i * 0.03) + 's';
 
-    const isZero = loc.reviews === 0;
-    const isBelowAvg = !isZero && loc.rating < 4.5;
+    var isZero = loc.reviews === 0;
+    var isBelowAvg = !isZero && loc.rating < 4.5;
 
-    // Status
-    let badgeClass = 'badge-ok', badgeText = 'Good';
+    var badgeClass = 'badge-ok', badgeText = 'Good';
     if (isZero) { badgeClass = 'badge-alert'; badgeText = 'No Reviews'; }
     else if (isBelowAvg) { badgeClass = 'badge-warn'; badgeText = 'Below 4.5'; }
 
-    // Stars SVG
-    const starsSvg = buildStars(loc.rating);
+    var starsSvg = buildStars(loc.rating);
 
-    tr.innerHTML = `
-      <td><span class="rank">${i + 1}</span></td>
-      <td class="loc-name">${cleanName(loc.name)}</td>
-      <td>
-        <span class="stars">
-          <span class="stars-visual">${starsSvg}</span>
-          <span class="stars-num">${isZero ? '—' : loc.rating.toFixed(1)}</span>
-        </span>
-      </td>
-      <td><span class="review-count">${isZero ? '0' : loc.reviews}</span></td>
-      <td><span class="badge ${badgeClass}">${badgeText}</span></td>
-    `;
+    tr.innerHTML =
+      '<td><span class="rank">' + (i + 1) + '</span></td>' +
+      '<td class="loc-name">' + cleanName(loc.name) + '</td>' +
+      '<td><span class="stars"><span class="stars-visual">' + starsSvg + '</span>' +
+      '<span class="stars-num">' + (isZero ? '—' : loc.rating.toFixed(1)) + '</span></span></td>' +
+      '<td><span class="review-count">' + (isZero ? '0' : loc.reviews) + '</span></td>' +
+      '<td><span class="badge ' + badgeClass + '">' + badgeText + '</span></td>';
+
     tbody.appendChild(tr);
-  });
+  }
 }
 
 function cleanName(name) {
-  return name.replace(/^Local Handyman\s*[-–—]?\s*/i, '').trim() || name;
+  var cleaned = name.replace(/^Local Handyman\s*[-–—]?\s*/i, '').trim();
+  return cleaned || name;
 }
 
 function buildStars(rating) {
-  let html = '';
-  for (let i = 1; i <= 5; i++) {
+  var html = '';
+  for (var i = 1; i <= 5; i++) {
     if (rating >= i) {
-      html += `<svg class="star" viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7l.94-5.49-4-3.9 5.53-.8L10 1.5z"/></svg>`;
+      html += '<svg class="star" viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7l.94-5.49-4-3.9 5.53-.8L10 1.5z"/></svg>';
     } else if (rating >= i - 0.5) {
-      html += `<svg class="star half" viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7l.94-5.49-4-3.9 5.53-.8L10 1.5z"/></svg>`;
+      html += '<svg class="star half" viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7l.94-5.49-4-3.9 5.53-.8L10 1.5z"/></svg>';
     } else {
-      html += `<svg class="star empty" viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7l.94-5.49-4-3.9 5.53-.8L10 1.5z"/></svg>`;
+      html += '<svg class="star empty" viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7l.94-5.49-4-3.9 5.53-.8L10 1.5z"/></svg>';
     }
   }
   return html;
 }
 
-
-// ===== INITIAL LOAD =====
 // Auto-load on page open
-if (APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes('YOUR_DEPLOYED')) {
-  loadData(false);
-} else {
-  document.getElementById('tableBody').innerHTML = `
-    <tr>
-      <td colspan="5" style="text-align:center; padding:40px; color:var(--text-dim)">
-        👋 Set your <code>APPS_SCRIPT_URL</code> at the top of this file to connect to your Google Sheet.<br>
-        <small style="opacity:0.6; margin-top:8px; display:block">See the README for deployment instructions.</small>
-      </td>
-    </tr>`;
-}
+loadData(false);
 </script>
 
 </body>
