@@ -83,7 +83,7 @@ const territoryMap = {
         'knoxville': ['37862', '37863', '37738', '37876', '37764', '37820', '37725', '37760', '37890', '37742', '37772', '37801', '37737', '37777', '37803', '37701', '37804', '37853', '37886', '37865', '37934', '37830', '37932', '37922', '37931'],
         'southeast-michigan': ['48197', '48105', '48198', '48103', '48108', '48104', '48109', '48188', '48187', '48170'],
         'youngstown': ['44420', '44425', '44437', '44509', '44502', '44510', '44503', '44555', '44504', '44506', '44505', '44405', '44436', '44440', '44515', '44446', '44452', '44512', '44511', '44507', '44443', '44514', '44442', '44471', '44449', '44411', '44412', '44401', '44429', '44406', '44451'],
-        'oklahoma-city': ['73173', '73169', '73170', '73159', '73139', '73097', '73114', '73131', '73151', '73162', '73142', '73120', '73134', '973013', '73078', '73012', '73003', '73049', '73045', '73016', '73025', '73034', '73044', '73007', '73050', '73054', '73058', '73027'],
+        'oklahoma-city': ['73173', '73169', '73170', '73159', '73139', '73097', '73114', '73131', '73151', '73162', '73142', '73120', '73134', '73013', '73078', '73012', '73003', '73049', '73045', '73016', '73025', '73034', '73044', '73007', '73050', '73054', '73058', '73027'],
         'west-denver': ['80219', '80223', '80204', '80209', '80225', '80227', '80232', '80226', '80215', '80214', '80005', '80004', '80033', '80002', '80212'],
  // Add more US territories as needed
     }
@@ -117,9 +117,9 @@ const urlMap = {
     'kamloops': 'https://localhandyman.com/kamloops',
     'nw-arkansas': 'https://localhandyman.com/nwarkansas',
     'raleigh': 'https://localhandyman.com/raleigh',
-    'charlotte-north': 'https://localhandyman.com/northcharlotte',
+    'north-charlotte': 'https://localhandyman.com/northcharlotte',
     'knoxville': 'https://localhandyman.com/knoxville',
-    'ann-arbor': 'https://localhandyman.com/southeast-michigan',
+    'southeast-michigan': 'https://localhandyman.com/southeast-michigan',
     'youngstown': 'https://localhandyman.com/youngstown',
     'oklahoma-city': 'https://localhandyman.com/oklahomacity',
     'west-denver': 'https://localhandyman.com/westdenver',
