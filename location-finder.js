@@ -87,6 +87,7 @@ const territoryMap = {
         'west-denver': ['80219', '80223', '80204', '80209', '80225', '80227', '80232', '80226', '80215', '80214', '80005', '80004', '80033', '80002', '80212'],
         'neworleans': ['70001', '70002', '70003', '70005', '70006', '70123', '70124'],
         'austin': ['78731', '78730', '78732', '78733', '78746', '78703', '78756', '78701', '78702', '78721', '78704', '78741', '78736', '78737', '78735', '78749', '78739', '78738'],
+        'northeast-georgia': ['30004', '30115', '30107', '30040', '30028', '30534', '30041', '30506', '30501', '30564', '30527'],
  // Add more US territories as needed
     }
 };
@@ -126,6 +127,7 @@ const urlMap = {
     'oklahoma-city': 'https://localhandyman.com/oklahomacity',
     'west-denver': 'https://localhandyman.com/westdenver',
     'austin': 'https://localhandyman.com/austin',
+    'northeast-georgia': 'https://localhandyman.com/northeast-georgia',
     'default': 'https://localhandyman.com/default-location',
 };
 
