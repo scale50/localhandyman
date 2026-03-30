@@ -86,6 +86,7 @@ const territoryMap = {
         'oklahoma-city': ['73173', '73169', '73170', '73159', '73139', '73097', '73114', '73131', '73151', '73162', '73142', '73120', '73134', '73013', '73078', '73012', '73003', '73049', '73045', '73016', '73025', '73034', '73044', '73007', '73050', '73054', '73058', '73027'],
         'west-denver': ['80219', '80223', '80204', '80209', '80225', '80227', '80232', '80226', '80215', '80214', '80005', '80004', '80033', '80002', '80212'],
         'neworleans': ['70001', '70002', '70003', '70005', '70006', '70123', '70124'],
+        'austin': ['78731', '78730', '78732', '78733', '78746', '78703', '78756', '78701', '78702', '78721', '78704', '78741', '78736', '78737', '78735', '78749', '78739', '78738'],
  // Add more US territories as needed
     }
 };
@@ -124,6 +125,7 @@ const urlMap = {
     'youngstown': 'https://localhandyman.com/youngstown',
     'oklahoma-city': 'https://localhandyman.com/oklahomacity',
     'west-denver': 'https://localhandyman.com/westdenver',
+    'austin': 'https://localhandyman.com/austin',
     'default': 'https://localhandyman.com/default-location',
 };
 
