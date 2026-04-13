@@ -104,7 +104,7 @@ const urlMap = {
     'vancouver-central': 'https://localhandyman.com/vancouver-central',
     'northshore-vancouver': 'https://localhandyman.com/northshore-vancouver',
     'tri-cities': 'https://localhandyman.com/tri-cities',
-    'whiterock': 'https://localhandyman.com/whiterock',
+    'whiterock': 'https://localhandyman.com/fraser-valley',
     'grande-prairie': 'https://localhandyman.com/grande-prairie',
     'niagara': 'https://localhandyman.com/niagara',
     'oakville': 'https://localhandyman.com/oakville',
