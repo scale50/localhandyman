@@ -22,7 +22,7 @@ const provinceMap = {
     'Y': 'YT'
 };
 
-// Added US state map - maps first digit of ZIP code to state/region
+// US state map - maps first digit of ZIP code to state/region
 const zipStateMap = {
     '0': 'CT_MA_ME_NH_NJ_NY_PR_RI_VT',
     '1': 'DE_NY_PA',
@@ -61,16 +61,14 @@ const territoryMap = {
         'niagara': ['L0S', 'L2A', 'L2E', 'L2G', 'L2H', 'L2J', 'L2M', 'L2N', 'L2P', 'L2R', 'L2S', 'L2T', 'L2V', 'L2W', 'L0R', 'L3B', 'L3C', 'L3K', 'L3M'],
         'oakville': ['L6K', 'L6H', 'L6L', 'L6M', 'L6J', 'L8B', 'L7T', 'L7P', 'L7M', 'L7S', 'L7R', 'L7N', 'L7L'],
         'hamilton': ['L9H', 'L8N', 'L8P', 'L8M', 'L8S', 'L8R', 'L8L', 'L9G', 'L9K', 'L9B', 'L9C', 'L9A'],
-
     },
      'MB': {
         'brandon': ['R0K', 'R7B', 'R7C', 'R7A'],
         'winnipeg': ['R4G', 'R3Y', 'R4H', 'R3S', 'R3R', 'R3K', 'R2Y', 'R3P'],
-
     },
     // ... other provinces
-    
-    // Add US territories - example structure for when you add US locations
+
+    // US territories
     'US': {
         'frisco-allen': ['75033', '75034', '75035', '75002', '75013', '75023', '75025'],
         'st-louis': ['63105', '63114', '63117', '63124', '63130', '63132', '63017', '63043', '63044', '63045', '63074', '63141', '63011', '63021', '63122', '63131', '63025', '63026', '63049', '63051', '63052', '63088', '63099', '63368', '63376', '63146','63005', '63010', '63038', '63040', '63053', '63119', '63123', '63125', '63126', '63127', '63128', '63129', '63133', '63143', '63144', '63301', '63303', '63304', '63332', '63341', '63348', '63357', '63362', '63366', '63367', '63369', '63373', '63380', '63383', '63385', '63390'],
@@ -92,7 +90,7 @@ const territoryMap = {
         'south-charlotte': ['28273', '28134', '28278', '28217', '28277', '28226', '28210', '28209', '28203', '28244', '28280', '28202', '28246', '28207', '28204', '28211', '28205'],
         'north-nashville': ['37082', '37062', '37143', '37221', '37069', '37027', '37211', '37220', '37204', '37215', '37205', '37209', '37218', '37232', '37212', '37240', '37203', '37208'],
         'bristol': ['02771', '02725', '02777', '02769', '02726', '02715', '02764', '02780', '02721', '02724', '02723', '02720', '02702', '02779', '02717', '02718', '02347'],
- // Add more US territories as needed
+        // Add more US territories as needed
     }
 };
 
@@ -141,7 +139,21 @@ const urlMap = {
 
 // Functions
 function cleanPostalCode(input) {
-    return input.replace(/[\s-]/g, '').toUpperCase();
+    // Force to string first so numeric inputs (e.g. <input type="number">)
+    // don't arrive as a number with the leading zero already gone.
+    let code = String(input).replace(/[\s-]/g, '').toUpperCase();
+
+    // LEADING-ZERO REPAIR (fixes Bristol + any future New England / 0-prefixed ZIPs)
+    // A US ZIP like "02771" becomes the number 2771 if the input field or any
+    // upstream step coerces it, dropping the leading zero and failing the
+    // 5-digit ZIP test. Canadian codes always contain letters, so an all-digit
+    // value of 3-4 chars can only be a US ZIP that lost its leading zero(s).
+    // Re-pad it back to 5 digits before validation/lookup.
+    if (/^\d{3,4}$/.test(code)) {
+        code = code.padStart(5, '0');
+    }
+
+    return code;
 }
 
 function isCanadianPostalCode(code) {
@@ -168,44 +180,44 @@ function getUSState(zipCode) {
 
 function findLocation(code) {
     console.log('Code being looked up:', code);
-    
+
     const codeType = getCodeType(code);
     console.log('Code type detected:', codeType);
-    
+
     if (codeType === 'CA') {
         // Process Canadian postal code
         const fsa = code.substring(0, 3);
         console.log('FSA extracted:', fsa);
-        
+
         const province = getProvince(fsa);
         console.log('Province found:', province);
-        
+
         if (!territoryMap[province]) {
             return urlMap.default;
         }
-        
+
         // Find territory that contains this FSA
-        const territory = Object.keys(territoryMap[province]).find(terr => 
+        const territory = Object.keys(territoryMap[province]).find(terr =>
             territoryMap[province][terr].includes(fsa)
         );
-        
-        console.log('Territory found:', territory);
-        return urlMap[territory] || urlMap.default;
-    } 
-    else if (codeType === 'US') {
-        // Process US ZIP code - using all 5 digits now
-        const zipCode = code.substring(0, 5);
-        console.log('Full ZIP code used:', zipCode);
-        
-        // Find territory that contains this exact ZIP code
-        const territory = Object.keys(territoryMap['US'] || {}).find(terr => 
-            territoryMap['US']?.[terr]?.includes(zipCode)
-        );
-        
+
         console.log('Territory found:', territory);
         return urlMap[territory] || urlMap.default;
     }
-    
+    else if (codeType === 'US') {
+        // Process US ZIP code - using all 5 digits
+        const zipCode = code.substring(0, 5);
+        console.log('Full ZIP code used:', zipCode);
+
+        // Find territory that contains this exact ZIP code
+        const territory = Object.keys(territoryMap['US'] || {}).find(terr =>
+            territoryMap['US']?.[terr]?.includes(zipCode)
+        );
+
+        console.log('Territory found:', territory);
+        return urlMap[territory] || urlMap.default;
+    }
+
     // If code type is unknown or not supported
     console.log('Unknown code format');
     return urlMap.default;
