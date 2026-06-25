@@ -91,6 +91,7 @@ const territoryMap = {
         'north-atlanta': ['30346', '30338', '30350', '30067', '30062', '30068', '30075', '30076', '30009', '30092', '30022', '30005', '30328'],
         'south-charlotte': ['28273', '28134', '28278', '28217', '28277', '28226', '28210', '28209', '28203', '28244', '28280', '28202', '28246', '28207', '28204', '28211', '28205'],
         'north-nashville': ['37082', '37062', '37143', '37221', '37069', '37027', '37211', '37220', '37204', '37215', '37205', '37209', '37218', '37232', '37212', '37240', '37203', '37208'],
+        'bristol': ['02771', '02725', '02777', '02769', '02726', '02715', '02764', '02780', '02721', '02724', '02723', '02720', '02702', '02779', '02717', '02718', '02347'],
  // Add more US territories as needed
     }
 };
@@ -134,6 +135,7 @@ const urlMap = {
     'north-atlanta': 'https://localhandyman.com/north-atlanta',
     'south-charlotte': 'https://localhandyman.com/south-charlotte',
     'north-nashville': 'https://localhandyman.com/nashville-brentwood',
+    'bristol': 'https://localhandyman.com/bristol-county',
     'default': 'https://localhandyman.com/default-location',
 };
 
