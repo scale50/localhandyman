@@ -44,7 +44,6 @@ const territoryMap = {
         'northshore-vancouver': ['V7W', 'V7V', 'V7T', 'V7P', 'V7M', 'V7R', 'V7N', 'V7K', 'V7G', 'V7H', 'V7L', 'V7J', 'V7S'],
         'ridge-meadows': ['V2X', 'V3Y', 'V2W', 'V4R'],
         'whiterock': ['V4A', 'V4P', 'V3X', 'V4B', 'V3Z'],
-        'tri-cities': ['V3H', 'V3K', 'V3J', 'V3B', 'V3E', 'V3C'],
         'kamloops': ['V2E', 'V1S', 'V2B', 'V2H', 'V2C'],
     },
     'SK': {
@@ -106,7 +105,6 @@ const urlMap = {
     'neworleans': 'https://localhandyman.com/neworleans',
     'vancouver-central': 'https://localhandyman.com/vancouver-central',
     'northshore-vancouver': 'https://localhandyman.com/northshore-vancouver',
-    'tri-cities': 'https://localhandyman.com/tri-cities',
     'whiterock': 'https://localhandyman.com/fraser-valley',
     'grande-prairie': 'https://localhandyman.com/grande-prairie',
     'niagara': 'https://localhandyman.com/niagara',
